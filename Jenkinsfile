@@ -1,12 +1,23 @@
+
 pipeline {
       agent {
-	     label "built-in"
-		 }
+	       label 'qa'
+		   }
 		 stages {
-		 stage ('stage-1') {
-		    steps {
-			 echo "hello all this in master branch"
-			 }
-			}
-		}
-}		
+             stage ("stage-1")
+              steps {
+                  echo "hello word"
+                }
+            }
+         stage ("stage-2") {
+           steps {
+             echo "hello word two"
+           }
+         }
+         stage ("stage-3") {
+             steps {
+              echo "hello word three"
+               }
+             }
+           } 
+      }		   	
