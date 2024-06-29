@@ -1,23 +1,23 @@
-
 pipeline {
-      agent {
-	       label 'qa'
-		   }
-		 stages {
-             stage ("stage-1")
-              steps {
-                  echo "hello word"
-                }
-            }
-         stage ("stage-2") {
-           steps {
-             echo "hello word two"
-           }
-         }
-         stage ("stage-3") {
-             steps {
-              echo "hello word three"
-               }
-             }
-           } 
-      }		   	
+    agent {
+	    label {
+		   label "built-in"
+		   customWorkspace "/data/pipeline"
+		}
+	}
+        satges {
+		  stage ('one') {
+		    steps {
+			 sh "echo 'hello all' > dev.html"
+			}
+		  }
+		    stage ('two') {
+			 steps {
+			  dir ('/data/pipeline/qa') {
+			  sh "echo 'hello all' > qa.html"
+			  }
+			 }
+			}
+		}
+
+} 	
